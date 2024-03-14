@@ -8,3 +8,5 @@ if (!Number.isNaN(number) && Number.isInteger(number) >= 1 && number <= 100)
 } else {
   console.log("Sorry, " + userInput + " is not a valid entry.")
 }
+
+console.log("test");
