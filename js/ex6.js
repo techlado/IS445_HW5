@@ -9,10 +9,24 @@ const words = [{
   definition: "figure of speech that juxtaposes elements that appear to be contradictory"
 }];
 
-const dictFunc() => {
-  const newel = document.createElement("dl");
-  newel.id = "term";
-  newel.textContent = 
+const dictFunc = (wordsArray) => {
+  const contentDiv = document.getElementById("content");
+  const dl = document.createElement("dl");
+
+  wordsArray.forEach((element) => {
+    const dt = document.createElement("dt");
+    const strong = document.createElement("strong");
+    strong.textContent = element.term;
+    dt.appendChild(strong);
+    dl.appendChild(dt); // Append the dt to dl, not directly to another element with an id
+
+    const dd = document.createElement("dd");
+    dd.textContent = element.definition;
+
+    dl.appendChild(dd);
+  });
+
+  contentDiv.appendChild(dl);
 };
 
-words.forEach(dictFunc);
+dictFunc(words);
